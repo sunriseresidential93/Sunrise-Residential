@@ -1,0 +1,101 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Who We Serve', href: '/who-we-serve' },
+  { label: 'Licensing & Payment', href: '/licensing-payment' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="bg-sunrise-navy sticky top-0 z-50 shadow-md" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo / Brand -->
+      <a href="/" class="flex items-center gap-3 group" aria-label="Sunrise Residential LLC home">
+        <div class="w-9 h-9 rounded-full bg-sunrise-gold flex items-center justify-center shrink-0">
+          <span class="text-sunrise-navy font-bold text-lg leading-none" aria-hidden="true">S</span>
+        </div>
+        <div class="hidden sm:block">
+          <p class="text-white font-heading font-semibold text-sm leading-tight">Sunrise Residential</p>
+          <p class="text-sunrise-lavender text-xs leading-tight">LLC</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden lg:flex items-center gap-1" role="list">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class={`px-3 py-2 rounded text-sm font-medium transition-colors duration-150 ${
+                currentPath === link.href
+                  ? 'text-sunrise-gold bg-white/10'
+                  : 'text-white/90 hover:text-sunrise-gold hover:bg-white/10'
+              }`}
+              aria-current={currentPath === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden text-white p-2 rounded hover:bg-white/10 transition-colors"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-white/20" role="menu">
+    <ul class="px-4 py-3 space-y-1" role="list">
+      {navLinks.map(link => (
+        <li role="none">
+          <a
+            href={link.href}
+            class={`block px-3 py-2 rounded text-sm font-medium transition-colors ${
+              currentPath === link.href
+                ? 'text-sunrise-gold bg-white/10'
+                : 'text-white/90 hover:text-sunrise-gold hover:bg-white/10'
+            }`}
+            role="menuitem"
+            aria-current={currentPath === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

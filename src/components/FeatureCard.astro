@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  icon: string; // SVG path data (d attribute)
+}
+const { title, description, icon } = Astro.props;
+---
+
+<div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-sunrise-lavender transition-all duration-200">
+  <div class="w-14 h-14 rounded-full bg-sunrise-navy flex items-center justify-center mb-4 shrink-0">
+    <svg class="w-7 h-7 text-sunrise-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={icon} />
+    </svg>
+  </div>
+  <h3 class="font-heading font-semibold text-sunrise-navy text-base mb-2">{title}</h3>
+  {description && (
+    <p class="text-gray-600 text-sm leading-relaxed">{description}</p>
+  )}
+</div>

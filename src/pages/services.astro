@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const services = [
+  {
+    title: 'Activities of Daily Living',
+    description: 'Full assistance with bathing, dressing, toileting, transferring, and eating — delivered with dignity and respect.',
+    icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+  },
+  {
+    title: 'Medication Management',
+    description: 'Careful administration and tracking of medications to ensure accuracy, safety, and resident health.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+  {
+    title: 'Meal Preparation',
+    description: 'Nutritious, home-cooked meals prepared fresh daily, accommodating dietary needs and personal preferences.',
+    icon: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+  },
+  {
+    title: 'Housekeeping',
+    description: 'Regular cleaning and maintenance of all living spaces to keep the home comfortable and hygienic.',
+    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+  },
+  {
+    title: 'Laundry',
+    description: 'Personal laundry services handled with care, keeping residents in clean, comfortable clothing.',
+    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+  },
+  {
+    title: 'Social & Recreational Activities',
+    description: 'Engaging programming designed to stimulate the mind, foster social connection, and support overall well-being.',
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+  {
+    title: 'Transportation',
+    description: 'Assistance coordinating transportation to medical appointments and other essential destinations.',
+    icon: 'M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0',
+  },
+  {
+    title: '24-Hour Staff Availability',
+    description: 'Awake, attentive staff on-site around the clock — so residents and families always have peace of mind.',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: 'On-Site Staff Supervision',
+    description: 'Trained, supervised staff ensuring consistent, high-quality care delivery every day.',
+    icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z',
+  },
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="Sunrise Residential LLC provides comprehensive assisted living services including daily living assistance, medication management, meals, housekeeping, and 24-hour staff support."
+>
+  <PageHeader
+    title="Our Services"
+    subtitle="Comprehensive, personalized care designed to support every resident's comfort, safety, and well-being."
+  />
+
+  <!-- Intro -->
+  <section class="py-14 px-4 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Sunrise Residential LLC provides personalized care for each resident. Our team helps with all daily living activities, ensuring every resident's comfort, safety, and well-being.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-4 pb-16 px-4 bg-white" aria-labelledby="services-heading">
+    <div class="max-w-7xl mx-auto">
+      <h2 id="services-heading" class="sr-only">Services We Offer</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => (
+          <div class="flex gap-4 p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-sunrise-lavender hover:shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-full bg-sunrise-navy flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-sunrise-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={service.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-sunrise-navy mb-1">{service.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Memory Care Note -->
+  <section class="py-10 px-4 bg-sunrise-lavender/20">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-sunrise-navy/10 text-sunrise-navy px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Note on Specialized Services
+      </div>
+      <p class="text-gray-700 leading-relaxed">
+        Some facilities offer specialized memory care. Please <a href="/contact" class="text-sunrise-navy font-semibold underline hover:text-sunrise-gold transition-colors">contact us</a> to ask about current availability and specialized services.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 px-4 bg-sunrise-navy text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-3xl font-bold text-white mb-4">Have Questions About Our Services?</h2>
+      <p class="text-sunrise-lavender mb-8">We'd be glad to discuss how our care can meet your loved one's specific needs.</p>
+      <a href="/contact" class="inline-block bg-sunrise-gold text-sunrise-navy font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all shadow-md">
+        Contact Us Today
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const whoWeHelp = [
+  {
+    title: 'Older Adults',
+    description: 'Seniors who need assistance with daily living activities and the reassurance of 24-hour supervised care.',
+    icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+  },
+  {
+    title: 'Individuals with Physical Disabilities',
+    description: 'People with physical disabilities who benefit from personal care support and an accessible, safe home environment.',
+    icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z',
+  },
+  {
+    title: 'Those with Chronic Health Conditions',
+    description: 'Residents managing chronic conditions who need medication management, health monitoring, and daily support.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+  {
+    title: 'People Seeking Social Engagement',
+    description: 'Those who benefit from daily mental stimulation, meaningful social activities, and a connected community.',
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+  {
+    title: 'Those Preferring a Small Home Setting',
+    description: 'Individuals who thrive in an intimate, home-like environment rather than a large institutional facility.',
+    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+  },
+];
+---
+
+<BaseLayout
+  title="Who We Serve"
+  description="Sunrise Residential LLC serves older adults and people with disabilities who need supportive care and 24-hour supervision in a home-like assisted living setting in Fridley, MN."
+>
+  <PageHeader
+    title="Who We Serve"
+    subtitle="We provide a warm, supportive home for those who need daily assistance and supervision, but not intensive skilled nursing care."
+  />
+
+  <!-- Intro -->
+  <section class="py-14 px-4 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Sunrise Residential LLC serves <strong class="text-sunrise-navy">older adults and people with disabilities</strong> who need help with daily activities and 24-hour supervision, but do not require the 24-hour skilled nursing care provided in nursing homes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Who We Help Grid -->
+  <section class="py-4 pb-16 px-4 bg-white" aria-labelledby="who-heading">
+    <div class="max-w-6xl mx-auto">
+      <h2 id="who-heading" class="sr-only">Who We Help</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {whoWeHelp.map(item => (
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-sunrise-lavender hover:shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-full bg-sunrise-navy flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-sunrise-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="font-heading font-semibold text-sunrise-navy text-lg mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Care Level Explanation -->
+  <section class="py-16 px-4 bg-sunrise-lavender/20" aria-labelledby="care-level-heading">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-center">
+        <div class="bg-white rounded-xl p-6 border border-gray-200 opacity-60">
+          <p class="font-heading font-bold text-gray-400 text-lg mb-1">Independent Living</p>
+          <p class="text-gray-400 text-sm">Fully independent — no daily care needs</p>
+        </div>
+        <div class="bg-sunrise-navy rounded-xl p-6 ring-2 ring-sunrise-gold relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sunrise-gold text-sunrise-navy text-xs font-bold px-3 py-1 rounded-full">
+            We Are Here
+          </div>
+          <p class="font-heading font-bold text-white text-lg mb-1">Assisted Living</p>
+          <p class="text-sunrise-lavender text-sm">Daily support & 24-hour supervision</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-200 opacity-60">
+          <p class="font-heading font-bold text-gray-400 text-lg mb-1">Nursing Home</p>
+          <p class="text-gray-400 text-sm">24-hour intensive skilled nursing care</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+        <h2 id="care-level-heading" class="font-heading text-2xl font-bold text-sunrise-navy mb-4">
+          Understanding Our Level of Care
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Our residents require <strong>supportive care and supervision</strong> — not the intensive skilled nursing care of a nursing home. We bridge the gap between fully independent living and nursing home-level care, providing the right amount of help so residents can live comfortably, safely, and with dignity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 px-4 bg-sunrise-navy text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-3xl font-bold text-white mb-4">Not Sure If We're the Right Fit?</h2>
+      <p class="text-sunrise-lavender mb-8">Reach out and we'll help you understand whether Sunrise Residential is the right level of care for your loved one.</p>
+      <a href="/contact" class="inline-block bg-sunrise-gold text-sunrise-navy font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all shadow-md">
+        Talk to Our Team
+      </a>
+    </div>
+  </section>
+</BaseLayout>

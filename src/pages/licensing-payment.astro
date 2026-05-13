@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const waiverPrograms = [
+  {
+    name: 'Elderly Waiver (EW)',
+    description: 'Provides home and community-based services for seniors aged 65 and older who meet nursing facility level of care.',
+    icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+  },
+  {
+    name: 'CADI Waiver',
+    description: 'Community Access for Disability Inclusion — supports individuals with physical disabilities aged 18–64 to live in the community.',
+    icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z',
+  },
+  {
+    name: 'BI Waiver',
+    description: 'Brain Injury Waiver — helps individuals with an acquired or traumatic brain injury live in the community with appropriate supports.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+];
+---
+
+<BaseLayout
+  title="Licensing & Payment"
+  description="Sunrise Residential LLC is a licensed assisted living facility in Minnesota. Learn about our licensure under Chapter 144G and Medicaid waiver payment options including Elderly Waiver, CADI, and BI."
+>
+  <PageHeader
+    title="Licensing & Payment"
+    subtitle="We are a fully licensed assisted living facility, and we accept multiple Medicaid waiver programs."
+  />
+
+  <!-- Licensing Section -->
+  <section class="py-16 px-4 bg-white" aria-labelledby="licensing-heading">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-sunrise-gold font-semibold text-sm uppercase tracking-wide mb-2">Our Licensure</p>
+          <h2 id="licensing-heading" class="font-heading text-3xl sm:text-4xl font-bold text-sunrise-navy mb-6">
+            Fully Licensed & Regulated
+          </h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              Sunrise Residential LLC is a licensed assisted living facility operating under the <strong class="text-sunrise-navy">Housing with Services</strong> registration and the <strong class="text-sunrise-navy">Assisted Living licensure law (Minnesota Statutes, chapter 144G)</strong>.
+            </p>
+            <p>
+              We are licensed by the <strong class="text-sunrise-navy">Minnesota Department of Health</strong> under the comprehensive 2019 assisted living regulations, ensuring the highest standard of care and safety for our residents.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-sunrise-gold flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-sunrise-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sunrise-navy text-sm">Licensed Facility Type</p>
+              <p class="text-gray-600 text-sm">Assisted Living — Housing with Services</p>
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-sunrise-gold flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-sunrise-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sunrise-navy text-sm">Licensing Authority</p>
+              <p class="text-gray-600 text-sm">Minnesota Department of Health</p>
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-sunrise-gold flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-sunrise-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sunrise-navy text-sm">Governing Statute</p>
+              <p class="text-gray-600 text-sm">Minnesota Statutes, Chapter 144G</p>
+            </div>
+          </div>
+          <div class="bg-sunrise-navy rounded-xl p-5 flex gap-4 items-center">
+            <div class="text-center px-4 border-r border-white/20">
+              <p class="font-heading text-4xl font-bold text-sunrise-gold">5</p>
+              <p class="text-white/70 text-xs mt-0.5">Licensed<br/>Residents</p>
+            </div>
+            <p class="text-white/80 text-sm leading-relaxed">
+              Our intimate licensed capacity ensures every resident receives focused, individualized attention.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Section -->
+  <section class="py-16 px-4 bg-gray-50" aria-labelledby="payment-heading">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-sunrise-gold font-semibold text-sm uppercase tracking-wide mb-2">Payment Options</p>
+        <h2 id="payment-heading" class="font-heading text-3xl sm:text-4xl font-bold text-sunrise-navy mb-4">
+          Medicaid Waiver Programs
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          In Minnesota, Medicaid may help pay for assisted living through the following waiver programs. Eligibility is based on both <strong>financial</strong> and <strong>functional</strong> criteria.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        {waiverPrograms.map(program => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-sunrise-lavender transition-all text-center">
+            <div class="w-14 h-14 rounded-full bg-sunrise-navy flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-sunrise-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={program.icon} />
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-sunrise-navy text-lg mb-2">{program.name}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{program.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-sunrise-lavender/30 border border-sunrise-lavender rounded-xl p-6">
+        <div class="flex gap-3 items-start">
+          <svg class="w-6 h-6 text-sunrise-navy shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            <strong class="text-sunrise-navy">Eligibility is based on both financial and functional criteria.</strong> Please contact us or consult with a Minnesota DHS case manager for assistance with the eligibility and enrollment process.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 px-4 bg-sunrise-navy text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-3xl font-bold text-white mb-4">Questions About Payment or Eligibility?</h2>
+      <p class="text-sunrise-lavender mb-8">We're happy to help you navigate your options. Contact us today.</p>
+      <a href="/contact" class="inline-block bg-sunrise-gold text-sunrise-navy font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all shadow-md">
+        Contact Us
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const differentiators = [
+  'Home setting in an established, safe neighborhood',
+  'Smaller, more personalized environment — not a large institution',
+  'Conscientious, respectful staff interactions with every resident',
+  'Emphasis on excellent service, skilled care, and compassionate attention',
+  'Management with a deep and genuine commitment to excellence',
+];
+---
+
+<BaseLayout
+  title="About Us"
+  description="Learn about Sunrise Residential LLC — our mission, values, and commitment to compassionate, personalized assisted living care in Fridley, Minnesota."
+>
+  <PageHeader
+    title="About Sunrise Residential"
+    subtitle="Our mission is to provide exceptional long-term care rooted in compassion, dignity, and personalized attention."
+  />
+
+  <!-- Mission Section -->
+  <section class="py-16 px-4 bg-white" aria-labelledby="mission-heading">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sunrise-gold font-semibold text-sm uppercase tracking-wide mb-2">Our Mission</p>
+          <h2 id="mission-heading" class="font-heading text-3xl sm:text-4xl font-bold text-sunrise-navy mb-6">
+            Excellence in Long-Term Care
+          </h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              At <strong class="text-sunrise-navy">Sunrise Residential LLC</strong>, our mission is to provide high level long-term care, prioritizing quality, personalized attention, and excellence.
+            </p>
+            <p>
+              We are dedicated to supporting residents in daily living activities, ensuring comfort, and maintaining a clean, well-resourced environment.
+            </p>
+            <p>
+              Our commitment to compassionate care creates a thriving community where residents experience a high standard of living and overall well-being.
+            </p>
+          </div>
+        </div>
+
+        <!-- Gold accent card -->
+        <div class="bg-sunrise-navy rounded-2xl p-8 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-sunrise-gold/10 -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-sunrise-lavender/10 translate-y-1/2 -translate-x-1/2"></div>
+          <div class="relative">
+            <div class="w-12 h-1 bg-sunrise-gold rounded-full mb-6"></div>
+            <blockquote class="font-heading text-xl font-semibold leading-relaxed text-white/90 italic">
+              "A thriving community where residents experience a high standard of living and overall well-being."
+            </blockquote>
+            <p class="mt-6 text-sunrise-lavender text-sm font-semibold">— Sunrise Residential LLC</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Points of Difference -->
+  <section class="py-16 px-4 bg-gray-50" aria-labelledby="difference-heading">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-sunrise-gold font-semibold text-sm uppercase tracking-wide mb-2">Why Choose Us</p>
+        <h2 id="difference-heading" class="font-heading text-3xl sm:text-4xl font-bold text-sunrise-navy">
+          The Sunrise Difference
+        </h2>
+      </div>
+      <ul class="space-y-4" role="list">
+        {differentiators.map((item, i) => (
+          <li class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+            <div class="w-8 h-8 rounded-full bg-sunrise-gold flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-sunrise-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <p class="text-gray-700 leading-relaxed">{item}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Facility Info -->
+  <section class="py-16 px-4 bg-white" aria-labelledby="facility-heading">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-sunrise-gold font-semibold text-sm uppercase tracking-wide mb-2">Our Facility</p>
+        <h2 id="facility-heading" class="font-heading text-3xl sm:text-4xl font-bold text-sunrise-navy">
+          About the Facility
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+        <div class="text-center bg-sunrise-navy rounded-xl p-6">
+          <p class="font-heading text-4xl font-bold text-sunrise-gold mb-2">5</p>
+          <p class="text-white/80 text-sm">Licensed Resident Capacity</p>
+        </div>
+        <div class="text-center bg-sunrise-navy rounded-xl p-6">
+          <p class="font-heading text-4xl font-bold text-sunrise-gold mb-2">24/7</p>
+          <p class="text-white/80 text-sm">Awake On-Site Staff</p>
+        </div>
+        <div class="text-center bg-sunrise-navy rounded-xl p-6">
+          <p class="font-heading text-2xl font-bold text-sunrise-gold mb-2">MN 144G</p>
+          <p class="text-white/80 text-sm">Licensed Under Chapter 144G</p>
+        </div>
+      </div>
+      <div class="bg-sunrise-lavender/20 border border-sunrise-lavender rounded-xl p-6 text-gray-700 space-y-3 leading-relaxed">
+        <p>
+          Sunrise Residential LLC is a <strong>licensed assisted living facility</strong> located in Fridley, Minnesota.
+        </p>
+        <p>
+          We operate under the <strong>Housing with Services</strong> registration and the <strong>Assisted Living licensure law (Minnesota Statutes, chapter 144G)</strong>, and are licensed by the Minnesota Department of Health.
+        </p>
+        <p>
+          Our home-based, four-bed residential facility provides an intimate, family-like atmosphere that larger facilities simply cannot replicate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 px-4 bg-sunrise-navy text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-3xl font-bold text-white mb-4">Questions About Our Facility?</h2>
+      <p class="text-sunrise-lavender mb-8">We're happy to answer any questions and welcome you to schedule a visit.</p>
+      <a href="/contact" class="inline-block bg-sunrise-gold text-sunrise-navy font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all shadow-md">
+        Contact Us
+      </a>
+    </div>
+  </section>
+</BaseLayout>
