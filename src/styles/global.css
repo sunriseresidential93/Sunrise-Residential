@@ -20,14 +20,3 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
-
-
-/* adding this gave added extra space to the right, need to investigate */
-.hero-wave {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-wave svg {
-  display: block;
-}
