@@ -1,0 +1,19 @@
+---
+interface Props {
+    title: string,
+    path: string
+}
+
+const { title, path } = Astro.props;
+---
+<div class="mx-auto">
+    <div class="flex flex-col items-center md:items-start gap-2">
+        <div class="flex gap-2">
+            <svg class="w-6 h-6 text-sunrise-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={path}/>
+            </svg>
+            <p class="my-auto text-sunrise-gold text-xs uppercase font-semibold tracking-wide">{title}</p>
+        </div>
+        <slot />
+    </div>
+</div>

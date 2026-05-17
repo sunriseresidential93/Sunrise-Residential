@@ -28,7 +28,7 @@ const currentPath = Astro.url.pathname;
               class={`px-3 py-2 rounded text-sm font-medium transition-colors duration-150 ${
                 currentPath === link.href
                   ? 'text-sunrise-gold'
-                  : 'text-sunrise-navy/90 hover:text-sunrise-gold'
+                  : 'text-sunrise-navy hover:text-sunrise-gold'
               }`}
               aria-current={currentPath === link.href ? 'page' : undefined}
             >
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
       <!-- Mobile hamburger -->
       <button
         id="mobile-menu-btn"
-        class="lg:hidden text-white p-2 rounded hover:bg-white/10 transition-colors"
+        class="lg:hidden text-black p-2 rounded hover:bg-black/10 transition-colors"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Toggle navigation menu"
@@ -57,7 +57,7 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-white/20" role="menu">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-black/20" role="menu">
     <ul class="px-4 py-3 space-y-1" role="list">
       {navLinks.map(link => (
         <li role="none">
@@ -65,8 +65,8 @@ const currentPath = Astro.url.pathname;
             href={link.href}
             class={`block px-3 py-2 rounded text-sm font-medium transition-colors ${
               currentPath === link.href
-                ? 'text-sunrise-gold bg-white/10'
-                : 'text-white/90 hover:text-sunrise-gold hover:bg-white/10'
+                ? 'text-sunrise-gold bg-black/10'
+                : 'text-black/90 hover:text-sunrise-gold hover:bg-black/10'
             }`}
             role="menuitem"
             aria-current={currentPath === link.href ? 'page' : undefined}
