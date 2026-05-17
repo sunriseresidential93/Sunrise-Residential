@@ -44,8 +44,6 @@ const features = [
   <section class="relative bg-sunrise-navy min-h-[85vh] flex items-center" aria-labelledby="hero-heading">
     <div class="absolute inset-0 bg-linear-to-br from-sunrise-navy via-sunrise-navy to-[#0f1a42] opacity-95"></div>
     <div class="absolute bottom-0 left-0 right-0 h-1 bg-sunrise-gold"></div>
-    <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-sunrise-gold/5 -translate-y-1/2 translate-x-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-sunrise-lavender/10 translate-y-1/2 -translate-x-1/2"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
       <p class="text-sunrise-gold font-semibold tracking-widest text-sm uppercase mb-4">Fridley, Minnesota</p>
@@ -108,9 +106,11 @@ const features = [
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map(f => (
-          <FeatureCard title={f.title} description={f.description} icon={f.icon} />
-        ))}
+        {
+          features.map(f => (
+            <FeatureCard title={f.title} description={f.description} icon={f.icon} />
+          ))
+        }
       </div>
     </div>
   </section>
