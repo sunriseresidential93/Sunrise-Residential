@@ -2,6 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 
+const photoFileNames = import.meta.glob('/public/photos/*.jpeg', { eager: true });
+
+let fnameString: string = '';
+for (const fname in photoFileNames) {
+  fnameString += fname + ' ';
+};
+
 const features = [
   {
     title: '24-Hour Awake Staff',
@@ -36,13 +43,26 @@ const features = [
 ];
 ---
 
+<script>
+  const photoFileNames = document.getElementById("fnameString")?.classList;
+  let prevFileName: string = "";
+
+  photoFileNames?.forEach((fname) => {
+    const heroBg = document.getElementById("hero-bg")
+    heroBg?.classList.remove(`sm:bg-[url(${prevFileName})]`)
+    heroBg?.classList.add(`sm:bg-[url(${fname})]`)
+    prevFileName = fname;
+    //await fn
+  })
+</script>
+
 <BaseLayout
   title="Home"
   description="Sunrise Residential LLC offers high-quality, compassionate, personalized long-term care in Fridley, Minnesota. A licensed home-based assisted living facility with 24-hour staff."
 >
   <!-- Hero Section -->
   <section class="relative min-h-[85vh] flex items-center" aria-labelledby="hero-heading">
-    
+    <div id="fnameString" class={fnameString} />
     <!-- Background Carousel -->
     <!-- <div class="absolute inset-0 z-0"> 
       <HeroCarousel />
@@ -51,7 +71,8 @@ const features = [
     
     <!--  from-sunrise-navy via-sunrise-navy to-[#0f1a42] opacity-95 -->
     <div class="absolute inset-0 overflow-hidden bg-linear-to-br">
-      <img src="../assets/IMG_2387.jpeg" />
+      <div id="hero-bg" class="bg-sunrise-navy">
+        <div class=" from-sunrise-navy via-sunrise-navy to-[#0f1a42] opacity-95 sm:hidden"></div>
         <!-- squiggly line div section, going to move button and text here -->
         <svg
           class="absolute bottom-0 left-0 w-full h-80"
@@ -89,11 +110,9 @@ const features = [
             </a>
           </div>
         </div>
+      </div>
     </div>
-
-
-
-    <div class="absolute bottom-0 left-0 right-0 h-1 bg-sunrise-gold"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-1 bg-sunrise-gold"></div>
 
 <!--     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
       <p class="text-sunrise-gold font-semibold tracking-widest text-sm uppercase mb-4">Fridley, Minnesota</p>
