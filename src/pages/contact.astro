@@ -51,10 +51,11 @@ import ContactInfo from '../components/ContactInfo.astro';
           <form
             name="contact"
             method="POST"
-            action="/contact?sent=true"
+            action="https://api.web3forms.com/submit"
             class="space-y-5"
             aria-label="Contact form"
           >
+            <input type="hidden" name="access_key" value="0cb06895-c78e-4275-829b-b567273cc60d" />
             <div>
               <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">
                 Full Name <span class="text-red-500" aria-label="required">*</span>

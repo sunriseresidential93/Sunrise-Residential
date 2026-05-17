@@ -12,22 +12,21 @@ const {
   title,
   description = 'Sunrise Residential LLC — High-quality, compassionate, personalized long-term care in Fridley, Minnesota.',
 } = Astro.props;
-
-const fullTitle = title === 'Home'
-  ? 'Sunrise Residential LLC | Assisted Living in Fridley, MN'
-  : `${title} | Sunrise Residential LLC`;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <title>{fullTitle}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+		<link rel="shortcut icon" href="/favicons/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Sunrise Residential LLC" />
+		<link rel="manifest" href="/favicons/site.webmanifest" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Sunrise Residential - {title}</title>
   </head>
   <body class="bg-white text-gray-800 font-body">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-sunrise-gold text-sunrise-navy px-4 py-2 rounded font-semibold z-50">
@@ -40,3 +39,12 @@ const fullTitle = title === 'Home'
     <Footer />
   </body>
 </html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

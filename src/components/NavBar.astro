@@ -11,18 +11,12 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="bg-sunrise-navy sticky top-0 z-50 shadow-md" aria-label="Main navigation">
+<nav class="bg-white sticky top-0 z-50 shadow-md" aria-label="Main navigation">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo / Brand -->
       <a href="/" class="flex items-center gap-3 group" aria-label="Sunrise Residential LLC home">
-        <div class="w-9 h-9 rounded-full bg-sunrise-gold flex items-center justify-center shrink-0">
-          <span class="text-sunrise-navy font-bold text-lg leading-none" aria-hidden="true">S</span>
-        </div>
-        <div class="hidden sm:block">
-          <p class="text-white font-heading font-semibold text-sm leading-tight">Sunrise Residential</p>
-          <p class="text-sunrise-lavender text-xs leading-tight">LLC</p>
-        </div>
+        <img src="/sunrise-residential-logo-horizontal.png" class="h-12 w-auto">
       </a>
 
       <!-- Desktop Nav -->
@@ -33,8 +27,8 @@ const currentPath = Astro.url.pathname;
               href={link.href}
               class={`px-3 py-2 rounded text-sm font-medium transition-colors duration-150 ${
                 currentPath === link.href
-                  ? 'text-sunrise-gold bg-white/10'
-                  : 'text-white/90 hover:text-sunrise-gold hover:bg-white/10'
+                  ? 'text-sunrise-gold'
+                  : 'text-sunrise-navy hover:text-sunrise-gold'
               }`}
               aria-current={currentPath === link.href ? 'page' : undefined}
             >
@@ -47,7 +41,7 @@ const currentPath = Astro.url.pathname;
       <!-- Mobile hamburger -->
       <button
         id="mobile-menu-btn"
-        class="lg:hidden text-white p-2 rounded hover:bg-white/10 transition-colors"
+        class="lg:hidden text-black p-2 rounded hover:bg-black/10 transition-colors"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Toggle navigation menu"
@@ -63,7 +57,7 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-white/20" role="menu">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-black/20" role="menu">
     <ul class="px-4 py-3 space-y-1" role="list">
       {navLinks.map(link => (
         <li role="none">
@@ -71,8 +65,8 @@ const currentPath = Astro.url.pathname;
             href={link.href}
             class={`block px-3 py-2 rounded text-sm font-medium transition-colors ${
               currentPath === link.href
-                ? 'text-sunrise-gold bg-white/10'
-                : 'text-white/90 hover:text-sunrise-gold hover:bg-white/10'
+                ? 'text-sunrise-gold bg-black/10'
+                : 'text-black/90 hover:text-sunrise-gold hover:bg-black/10'
             }`}
             role="menuitem"
             aria-current={currentPath === link.href ? 'page' : undefined}
