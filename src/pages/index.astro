@@ -43,7 +43,7 @@ const features = [
 ];
 ---
 
-<script>
+<!-- <script>
   const photoFileNames = document.getElementById("fnameString")?.classList;
   let prevFileName: string = "";
 
@@ -54,7 +54,7 @@ const features = [
     prevFileName = fname;
     //await fn
   })
-</script>
+</script> -->
 
 <BaseLayout
   title="Home"
@@ -63,56 +63,52 @@ const features = [
   <!-- Hero Section -->
   <section class="relative min-h-[85vh] flex items-center" aria-labelledby="hero-heading">
     <div id="fnameString" class={fnameString} />
-    <!-- Background Carousel -->
-    <!-- <div class="absolute inset-0 z-0"> 
-      <HeroCarousel />
-    </div> -->
     
-    
-    <!--  from-sunrise-navy via-sunrise-navy to-[#0f1a42] opacity-95 -->
-    <div class="absolute inset-0 overflow-hidden bg-linear-to-br">
-      <div id="hero-bg" class="bg-sunrise-navy">
-        <div class=" from-sunrise-navy via-sunrise-navy to-[#0f1a42] opacity-95 sm:hidden"></div>
-        <!-- squiggly line div section, going to move button and text here -->
-        <svg
-          class="absolute bottom-0 left-0 w-full h-80"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            fill="#1b2a6b"
-            d="M0,40 C360,0 720,160 1080,80 C1260,40 1440,80 1440,120 L1440,120 L0,120 Z"
-          />
-        </svg>      
+    <!-- once you go to mobile L a white secton appears, not sure where it's coming from  -->
+    <div id = "hero-bg" class="absolute inset-0 overflow-hidden bg-linear-to-br bg-sunrise-navy">
+      
+      <div class=" from-sunrise-navy via-sunrise-navy to-[#0f1a42] opacity-95 sm:hidden"></div>
+      <!-- squiggly line div section, going to move button and text here -->
+       <svg
+        class="absolute bottom-0 left-0 w-full h-80"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          fill="#1b2a6c"
+          d="M0,40 C360,0 720,160 1080,80 C1260,40 1440,80 1440,120 L1440,120 L0,120 Z"
+        />
+      </svg>       
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <p class="text-sunrise-gold font-semibold tracking-widest text-sm uppercase mb-4">Fridley, Minnesota</p>
-          <h1 id="hero-heading" class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Compassionate,<br class="hidden sm:block"/>
-            <span class="text-sunrise-gold">Personalized</span> Long-Term Care
-          </h1>
-          <p class="text-sunrise-lavender text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            A comfortable, home-like assisted living community in Fridley, Minnesota — where every resident is known by name and treated like family.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              class="inline-block bg-sunrise-gold text-sunrise-navy font-bold px-8 py-4 rounded-lg text-base hover:brightness-110 transition-all shadow-lg"
-            >
-              Contact Us Today
-            </a>
-            <a
-              href="/services"
-              class="inline-block border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-lg text-base hover:border-sunrise-gold hover:text-sunrise-gold transition-colors"
-            >
-              View Our Services
-            </a>
-          </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <p class="text-sunrise-gold font-semibold tracking-widest text-sm uppercase mb-4">Fridley, Minnesota</p>
+        <h1 id="hero-heading" class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          Compassionate,<br class="hidden sm:block"/>
+          <span class="text-sunrise-gold">Personalized</span> Long-Term Care
+        </h1>
+        <p class="text-sunrise-lavender text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          A comfortable, home-like assisted living community in Fridley, Minnesota — where every resident is known by name and treated like family.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="inline-block bg-sunrise-gold text-sunrise-navy font-bold px-8 py-4 rounded-lg text-base hover:brightness-110 transition-all shadow-lg"
+          >
+            Contact Us Today
+          </a>
+          <a
+            href="/services"
+            class="inline-block border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-lg text-base hover:border-sunrise-gold hover:text-sunrise-gold transition-colors"
+          >
+            View Our Services
+          </a>
         </div>
       </div>
+      
     </div>
-  <div class="absolute bottom-0 left-0 right-0 h-1 bg-sunrise-gold"></div>
+    
+    <div class="absolute bottom-0 left-0 right-0 h-1 bg-sunrise-gold"></div>
 
 <!--     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
       <p class="text-sunrise-gold font-semibold tracking-widest text-sm uppercase mb-4">Fridley, Minnesota</p>
@@ -248,7 +244,7 @@ const features = [
   </section>
 </BaseLayout>
 
-<style>
+<!-- <style>
   /* adding this gave added extra space to the right, need to investigate */
   .hero-wave {
     position: relative;
@@ -258,4 +254,4 @@ const features = [
   .hero-wave svg {
     display: block;
   }
-</style>
+</style> -->
