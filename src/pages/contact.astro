@@ -6,7 +6,6 @@ import ContactInfo from '../components/ContactInfo.astro';
 const testing = true;
 const formKey = testing ? '4ccc5140-b57f-40aa-bb9b-d8a2e75e5a7c' : '0cb06895-c78e-4275-829b-b567273cc60d';
 const url = testing ? "sunrise-residential-fork.vercel.app" : "sunriseresidentialllc.com";
-
 ---
 
 <BaseLayout
@@ -22,32 +21,6 @@ const url = testing ? "sunrise-residential-fork.vercel.app" : "sunriseresidentia
     <div class="max-w-6xl mx-auto">
       <h2 id="contact-heading" class="sr-only">Contact Information and Form</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-        <!-- Contact Details -->
-        <div class="py-5.5">
-          <h3 class="font-heading text-2xl font-bold text-sunrise-navy mb-2">Get in Touch</h3>
-          <div class="w-36 h-1 bg-sunrise-gold rounded-full mb-6"></div>
-          <p class="text-gray-600 mb-8 leading-relaxed">
-            Whether you have questions about our services, want to learn more about availability, or are ready to start the conversation about care for a loved one — we're here to help.
-          </p>
-          <ContactInfo variant="light" />
-
-          <!-- Office Hours callout -->
-          <div class="mt-8 bg-sunrise-navy rounded-xl p-6 text-white">
-            <h4 class="font-heading font-semibold text-sunrise-gold mb-3">Office Hours</h4>
-            <div class="space-y-2 text-white/80 text-sm">
-              <div class="flex justify-between">
-                <span>Monday – Friday</span>
-                <span class="font-semibold text-white">9:00 AM – 5:00 PM</span>
-              </div>
-              <div class="flex justify-between border-t border-white/10 pt-2 mt-2">
-                <span>After Hours</span>
-                <a href="tel:6124069257" class="font-semibold text-sunrise-gold hover:brightness-110 transition-all">612-406-9257</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Contact Form -->
         <div class="flex flex-col mb-auto bg-black/10 rounded-2xl px-8 pt-4 border border-black/10">
           <div id="form-confirmation" style="display:none">
@@ -147,6 +120,30 @@ const url = testing ? "sunrise-residential-fork.vercel.app" : "sunriseresidentia
             document.getElementById('form-confirmation')!.style.display = 'block';
           }
         </script>
+        <!-- Contact Details -->
+        <div class="py-5.5">
+          <h3 class="font-heading text-2xl font-bold text-sunrise-navy mb-2">Get in Touch</h3>
+          <div class="w-36 h-1 bg-sunrise-gold rounded-full mb-6"></div>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            Whether you have questions about our services, want to learn more about availability, or are ready to start the conversation about care for a loved one — we're here to help.
+          </p>
+          <ContactInfo variant="light" />
+
+          <!-- Office Hours callout -->
+          <div class="mt-8 bg-sunrise-navy rounded-xl p-6 text-white">
+            <h4 class="font-heading font-semibold text-sunrise-gold mb-3">Office Hours</h4>
+            <div class="space-y-2 text-white/80 text-sm">
+              <div class="flex justify-between">
+                <span>Monday – Friday</span>
+                <span class="font-semibold text-white">9:00 AM – 5:00 PM</span>
+              </div>
+              <div class="flex justify-between border-t border-white/10 pt-2 mt-2">
+                <span>After Hours</span>
+                <a href="tel:6124069257" class="font-semibold text-sunrise-gold hover:brightness-110 transition-all">612-406-9257</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
