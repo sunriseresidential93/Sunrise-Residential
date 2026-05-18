@@ -4,15 +4,9 @@ import PageHeader from '../components/PageHeader.astro';
 import ContactInfo from '../components/ContactInfo.astro';
 
 const testing = true;
-const formKey = testing ? 'eebf5e7c-8060-4a1e-ae35-3ebbabb5699e' : '0cb06895-c78e-4275-829b-b567273cc60d';
-const url = testing ? "sunriseresidentialllc.com" : "";
+const formKey = testing ? '4ccc5140-b57f-40aa-bb9b-d8a2e75e5a7c' : '0cb06895-c78e-4275-829b-b567273cc60d';
+const url = testing ? "sunrise-residential-fork.vercel.app" : "sunriseresidentialllc.com";
 ---
-
-<script>
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = Object.fromEntries(urlSearchParams.entries());
-  console.log('params', params);
-</script>
 
 <BaseLayout
   title="Contact"
@@ -23,15 +17,113 @@ const url = testing ? "sunriseresidentialllc.com" : "";
     subtitle="We'd love to hear from you. Reach out to our team with any questions or to schedule a visit."
   />
 
-  <section class="py-16 px-4 bg-white" aria-labelledby="contact-heading">
+  <section class="py-8 px-4 bg-white" aria-labelledby="contact-heading">
     <div class="max-w-6xl mx-auto">
       <h2 id="contact-heading" class="sr-only">Contact Information and Form</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="flex flex-col mb-auto bg-black/10 rounded-2xl px-8 pt-4 border border-black/10">
+          <div id="form-confirmation" style="display:none">
+            <h3 class="font-heading text-2xl font-bold text-sunrise-navy mb-2">Thank You</h3>
+            <div class="w-30 h-1 bg-sunrise-gold rounded-full mb-6"/>
+            <p class="text-gray-600 mb-8 leading-relaxed">We have received your message and will get back to you soon.</p>
+          </div>
+          
+          <div id="form-wrapper">
+            <form
+            name="contact"
+            method="POST"
+            action="https://api.web3forms.com/submit"
+            class="space-y-5"
+            aria-label="Contact form"
+            >
+              <h3 class="font-heading text-2xl font-bold text-sunrise-navy mb-2">Send Us a Message</h3>
+              <div class="w-52 h-1 bg-sunrise-gold rounded-full mb-6"></div>
 
+              <input type="hidden" name="access_key" value={formKey} />
+              <input type="hidden" name="redirect" value={`https://${url}/contact/?submitted=true`} />
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">
+                  Full Name <span class="text-red-500" aria-label="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white"
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white"
+                  placeholder="(612) 000-0000"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">
+                  Email Address <span class="text-red-500" aria-label="required">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">
+                  Message <span class="text-red-500" aria-label="required">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white resize-y"
+                  placeholder="Tell us how we can help you..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-sunrise-navy text-white font-bold py-4 px-6 rounded-lg hover:brightness-110 transition-all shadow-md text-sm tracking-wide"
+              >
+                Send Message
+              </button>
+
+              <p class="text-gray-400 text-xs text-center">
+                Fields marked <span class="text-red-400">*</span> are required.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <script>
+          if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
+            document.getElementById('form-wrapper')!.style.display = 'none';
+            document.getElementById('form-confirmation')!.style.display = 'block';
+          }
+        </script>
         <!-- Contact Details -->
-        <div>
+        <div class="py-5.5">
           <h3 class="font-heading text-2xl font-bold text-sunrise-navy mb-2">Get in Touch</h3>
-          <div class="w-12 h-1 bg-sunrise-gold rounded-full mb-6"></div>
+          <div class="w-36 h-1 bg-sunrise-gold rounded-full mb-6"></div>
           <p class="text-gray-600 mb-8 leading-relaxed">
             Whether you have questions about our services, want to learn more about availability, or are ready to start the conversation about care for a loved one — we're here to help.
           </p>
@@ -52,92 +144,6 @@ const url = testing ? "sunriseresidentialllc.com" : "";
             </div>
           </div>
         </div>
-
-        <!-- Contact Form -->
-        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-          <h3 class="font-heading text-2xl font-bold text-sunrise-navy mb-2">Send Us a Message</h3>
-          <div class="w-12 h-1 bg-sunrise-gold rounded-full mb-6"></div>
-
-          <form
-            name="contact"
-            method="POST"
-            action="https://api.web3forms.com/submit"
-            class="space-y-5"
-            aria-label="Contact form"
-          >
-            <input type="hidden" name="access_key" value={formKey} />
-            <input type="hidden" name="redirect" value=`https://${url}/contact/?submitted=true` />
-            <div>
-              <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">
-                Full Name <span class="text-red-500" aria-label="required">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                autocomplete="name"
-                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white"
-                placeholder="Your full name"
-              />
-            </div>
-
-            <div>
-              <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                autocomplete="tel"
-                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white"
-                placeholder="(612) 000-0000"
-              />
-            </div>
-
-            <div>
-              <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">
-                Email Address <span class="text-red-500" aria-label="required">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                autocomplete="email"
-                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white"
-                placeholder="you@example.com"
-              />
-            </div>
-
-            <div>
-              <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">
-                Message <span class="text-red-500" aria-label="required">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows="5"
-                class="w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-sunrise-navy focus:border-transparent transition-all bg-white resize-y"
-                placeholder="Tell us how we can help you..."
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full bg-sunrise-navy text-white font-bold py-4 px-6 rounded-lg hover:brightness-110 transition-all shadow-md text-sm tracking-wide"
-            >
-              Send Message
-            </button>
-
-            <p class="text-gray-400 text-xs text-center">
-              Fields marked <span class="text-red-400">*</span> are required.
-            </p>
-          </form>
-        </div>
-
       </div>
     </div>
   </section>
