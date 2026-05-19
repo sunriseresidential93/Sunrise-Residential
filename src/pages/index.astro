@@ -4,10 +4,9 @@ import FeatureCard from '../components/FeatureCard.astro';
 
 const photoFileNames = import.meta.glob('/public/photos/*.jpeg', { eager: true });
 
-let fnameString: string = '';
-for (const fname in photoFileNames) {
-  fnameString += fname + ' ';
-};
+const photoUrls = Object.keys(photoFileNames).map(key => key.replace('/public', ''));
+
+console.log(photoUrls);
 
 const features = [
   {
@@ -43,18 +42,7 @@ const features = [
 ];
 ---
 
-<!-- <script>
-  const photoFileNames = document.getElementById("fnameString")?.classList;
-  let prevFileName: string = "";
 
-  photoFileNames?.forEach((fname) => {
-    const heroBg = document.getElementById("hero-bg")
-    heroBg?.classList.remove(`sm:bg-[url(${prevFileName})]`)
-    heroBg?.classList.add(`sm:bg-[url(${fname})]`)
-    prevFileName = fname;
-    //await fn
-  })
-</script> -->
 
 <BaseLayout
   title="Home"
@@ -62,24 +50,47 @@ const features = [
 >
   <!-- Hero Section -->
   <section class="relative min-h-[85vh] flex items-center" aria-labelledby="hero-heading">
-    <div id="fnameString" class={fnameString} />
+    
     
     <!-- once you go to mobile L a white secton appears, not sure where it's coming from  -->
-    <div id = "hero-bg" class="absolute inset-0 overflow-hidden bg-linear-to-br bg-sunrise-navy">
+    <div class="absolute inset-0 overflow-hidden bg-linear-to-br bg-sunrise-navy">
       
+      <div>
+        <div id="layer-a" class="hidden sm:block absolute inset-0 bg-cover bg-center transition-opacity duration-1000" />
+        <div id="layer-b" class="hidden sm:block absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0"/>
+      </div>
+
+      <script is:inline define:vars={{ photoUrls }}>
+        const layerA = document.getElementById('layer-a');
+        const layerB = document.getElementById('layer-b');
+
+        if (layerA && layerB && photoUrls.length){
+          let index = 0;
+          let activeLayer = layerA;
+          let inactiveLayer = layerB;
+          activeLayer.style.backgroundImage = `url(${photoUrls[index]})`;
+          setInterval(() => {
+            index = (index + 1) % photoUrls.length;
+            inactiveLayer.style.backgroundImage = `url(${photoUrls[index]})`;
+            inactiveLayer.style.opacity = '1';
+            activeLayer.style.opacity = '0';
+
+            // Swap layers
+            [activeLayer, inactiveLayer] = [inactiveLayer, activeLayer];
+
+          }, 5000);
+
+
+
+
+        }
+
+
+      </script>
+
       <div class=" from-sunrise-navy via-sunrise-navy to-[#0f1a42] opacity-95 sm:hidden"></div>
-      <!-- squiggly line div section, going to move button and text here -->
-       <svg
-        class="absolute bottom-0 left-0 w-full h-80"
-        viewBox="0 0 1440 120"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          fill="#1b2a6c"
-          d="M0,40 C360,0 720,160 1080,80 C1260,40 1440,80 1440,120 L1440,120 L0,120 Z"
-        />
-      </svg>       
+
+  
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <p class="text-sunrise-gold font-semibold tracking-widest text-sm uppercase mb-4">Fridley, Minnesota</p>
@@ -110,30 +121,6 @@ const features = [
     
     <div class="absolute bottom-0 left-0 right-0 h-1 bg-sunrise-gold"></div>
 
-<!--     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-      <p class="text-sunrise-gold font-semibold tracking-widest text-sm uppercase mb-4">Fridley, Minnesota</p>
-      <h1 id="hero-heading" class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-        Compassionate,<br class="hidden sm:block"/>
-        <span class="text-sunrise-gold">Personalized</span> Long-Term Care
-      </h1>
-      <p class="text-sunrise-lavender text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-        A comfortable, home-like assisted living community in Fridley, Minnesota — where every resident is known by name and treated like family.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/contact"
-          class="inline-block bg-sunrise-gold text-sunrise-navy font-bold px-8 py-4 rounded-lg text-base hover:brightness-110 transition-all shadow-lg"
-        >
-          Contact Us Today
-        </a>
-        <a
-          href="/services"
-          class="inline-block border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-lg text-base hover:border-sunrise-gold hover:text-sunrise-gold transition-colors"
-        >
-          View Our Services
-        </a>
-      </div>
-    </div> -->
   </section>
 
   <!-- Quick Intro Block -->
@@ -244,14 +231,3 @@ const features = [
   </section>
 </BaseLayout>
 
-<!-- <style>
-  /* adding this gave added extra space to the right, need to investigate */
-  .hero-wave {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-wave svg {
-    display: block;
-  }
-</style> -->
